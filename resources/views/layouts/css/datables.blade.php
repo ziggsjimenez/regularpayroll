@@ -1,0 +1,1 @@
+<link href="{{ asset('public/datatables/datatables.css') }}" rel="stylesheet">
