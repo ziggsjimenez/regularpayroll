@@ -66,15 +66,16 @@
             @foreach($refundtypes as $refundtype)
                         <td>
 
-                            @if($payrollitem->refunds->where('refundtype_id','=',$refundtype->id)->first()['amount']!=null)
 
-                                <input class="refundamount" refundtype_id = "{{$refundtype->id}}" payrollitem_id="{{$payrollitem->id}}" style="width:50px;" type="text" value="{{$payrollitem->refunds->where('refundtype_id','=',$refundtype->id)->first()['amount']}}" >
+                            @if($payrollitem->getRefundAmount($payrollitem->id,$refundtype->id)==null)
+
+                                <input class="refundamount" refundtype_id="{{$refundtype->id}}" payrollitem_id="{{$payrollitem->id}}" style="width:50px;" type="text">
 
                             @else
 
-                                <input class="refundamount" refundtype_id = "{{$refundtype->id}}" payrollitem_id="{{$payrollitem->id}}" style="width:50px;" type="text" >
+                                <input class="refundamount" refundtype_id="{{$refundtype->id}}" payrollitem_id="{{$payrollitem->id}}" style="width:50px;" type="text" value="{{$payrollitem->getRefundAmount($payrollitem->id,$refundtype->id)->amount}}">
 
-                            @endif
+                                @endif
 
                         </td>
             @endforeach

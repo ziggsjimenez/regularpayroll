@@ -35,6 +35,11 @@
             font-weight: bolder;
         }
 
+        td .number{
+            font-size: 16px;
+            color: red;
+        }
+
         @media print{@page {size: landscape}}
 
     </style>
@@ -164,25 +169,25 @@
 
                 <?php $subtotalamount = $payrollitem->rate*$payrollitem->days; $subtotaldeduction=0; $totaldeduction=0;  ?>
 
-                <td class="right">{{number_format($payrollitem->days,2,'.',',')}}</td>
+                <td class="right number">{{number_format($payrollitem->days,2,'.',',')}}</td>
 
-                <td class="right">{{number_format($payrollitem->rate,2,'.',',')}}</td>
+                <td class="right number">{{number_format($payrollitem->rate,2,'.',',')}}</td>
 
-                <td class="right">{{number_format($subtotalamount,2,'.',',')}}</td>
+                <td class="right number">{{number_format($subtotalamount,2,'.',',')}}</td>
 
                 @foreach($deductionitems as $deductionitem)
 
                     @php $subtotaldeduction=$payrollitem->deductions->where('deductionitem_id','=',$deductionitem->id)->first()['amount'];@endphp
 
-                    <td class="right">{{$subtotaldeduction}}</td>
+                    <td class="right number">{{$subtotaldeduction}}</td>
 
                     <?php $totaldeduction+=$subtotaldeduction; ?>
 
                 @endforeach
 
-                <td class="right">{{number_format($totaldeduction,2,'.',',')}}</td>
+                <td class="right number">{{number_format($totaldeduction,2,'.',',')}}</td>
 
-                <td class="right">{{number_format(($subtotalamount)-$totaldeduction,2,'.',',')}}</td>
+                <td class="right number">{{number_format(($subtotalamount)-$totaldeduction,2,'.',',')}}</td>
 
                 {{--refunds --}}
 
@@ -191,11 +196,11 @@
 
                         @if($payrollitem->refunds->where('refundtype_id','=',$refundtype->id)->first()['amount']!=null)
 
-                            <input class="refundamount" refundtype_id = "{{$refundtype->id}}" payrollitem_id="{{$payrollitem->id}}" style="width:50px;" type="text" value="{{$payrollitem->refunds->where('refundtype_id','=',$refundtype->id)->first()['amount']}}" >
+                            <input class="refundamount number" refundtype_id = "{{$refundtype->id}}" payrollitem_id="{{$payrollitem->id}}" style="width:50px;" type="text" value="{{$payrollitem->refunds->where('refundtype_id','=',$refundtype->id)->first()['amount']}}" >
 
                         @else
 
-                            <input class="refundamount" refundtype_id = "{{$refundtype->id}}" payrollitem_id="{{$payrollitem->id}}" style="width:50px;" type="text" >
+                            <input class="refundamount number" refundtype_id = "{{$refundtype->id}}" payrollitem_id="{{$payrollitem->id}}" style="width:50px;" type="text" >
 
                         @endif
 
@@ -222,12 +227,12 @@
             @endfor
             <td class="right"></td>
             <td class="right"></td>
-            <td class="right bolder">{{number_format($totalamount,2,'.',',')}}</td>
+            <td class="right bolder number">{{number_format($totalamount,2,'.',',')}}</td>
             @foreach($deductionitems as $deductionitem)
-                <td class="right bolder">{{number_format($payroll->totaldeduction($deductionitem->id),2,'.',',')}}</td>
+                <td class="right bolder number">{{number_format($payroll->totaldeduction($deductionitem->id),2,'.',',')}}</td>
             @endforeach
-            <td class="right bolder">{{number_format($grandtotaldeduction,2,'.',',')}}</td>
-            <td class="right bolder">{{number_format($totalamount-$grandtotaldeduction,2,'.',',')}}</td>
+            <td class="right bolder number">{{number_format($grandtotaldeduction,2,'.',',')}}</td>
+            <td class="right bolder number">{{number_format($totalamount-$grandtotaldeduction,2,'.',',')}}</td>
         </tr>
 
         </tbody>

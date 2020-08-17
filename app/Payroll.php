@@ -62,4 +62,22 @@ class Payroll extends Model
 
         return $numberofdigits;
     }
+
+
+    public function getTotalRefund($id){
+        $total = 0;
+        foreach($this->payrollitems as $payrollitem){
+            $total+=$payrollitem->getTotalRefund($id)->sum('amount');
+        }
+        return $total;
+    }
+
+    public function getGrandTotalRefund(){
+        $total = 0;
+        foreach($this->payrollitems as $payrollitem){
+            $total+=$payrollitem->refunds->sum('amount');
+        }
+        return $total;
+    }
+
 }

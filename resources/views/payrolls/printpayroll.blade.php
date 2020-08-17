@@ -100,7 +100,7 @@
 
         .number{
 
-            font-size:120%;
+            font-size:14px;
         }
 
     </style>

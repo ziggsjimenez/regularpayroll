@@ -54,7 +54,7 @@
     </tr>
 
     <tr>
-        <td class="title">DEDUCTIONS</td>
+        <td class="title">LESS: DEDUCTIONS</td>
     </tr>
 
 @foreach($deductionitems as $deductionitem)
@@ -75,6 +75,30 @@
 
         <td class="amounttotal">{{number_format($payrollitem->totaldeductions(),2,'.',',')}}</td>
     </tr>
+
+    <tr>
+        <td class="title">ADD: REFUND</td>
+    </tr>
+
+
+    @foreach($payrollitem->refunds as $refund)
+
+        <tr>
+            <td class="item">{{$refund->refundtype->title}}</td>
+            <td class="right deductionitem">{{number_format($refund->amount,2,'.',',')}}</td>
+
+        </tr>
+
+    @endforeach
+
+    <tr>
+        <td class="title">TOTAL REFUND</td>
+
+        <td class="amounttotal">{{number_format($payrollitem->totalrefunds(),2,'.',',')}}</td>
+    </tr>
+
+
+
 
     <tr style="background-color: yellow">
         <td class="title">NET TAKE HOME PAY</td>

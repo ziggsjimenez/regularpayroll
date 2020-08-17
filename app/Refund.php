@@ -11,4 +11,9 @@ class Refund extends Model
         return $this->belongsTo('App\Payrollitem');
 
     }
+
+    public function refundtype(){
+
+        return $this->belongsTo('App\Refundtype');
+    }
 }
