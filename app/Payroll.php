@@ -20,6 +20,11 @@ class Payroll extends Model
         return $this->belongsTo('App\Status');
     }
 
+    public function deductionmode(){
+
+        return $this->belongsTo('App\Deductionmode');
+    }
+
     public function payrollitems(){
 
         return $this->hasManyThrough('App\Payrollitem','App\Employee','id','payroll_id','id','id')->orderBy('employees.lastname','asc');

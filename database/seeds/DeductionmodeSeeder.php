@@ -14,8 +14,8 @@ class DeductionmodeSeeder extends Seeder
     {
         $deductionmodes = [
             ['name'=>'Annual'],
-            ['name'=>'Quincena'],
-            ['name'=>'Monthly'],
+            ['name'=>'1st Quincena'],
+            ['name'=>'2nd Quincena'],
         ];
 
         foreach($deductionmodes as $deductionmode){

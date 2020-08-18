@@ -10,4 +10,9 @@ class Deductionmode extends Model
 
         return $this->hasMany('App\Deductionitem');
     }
+
+    public function payrolls(){
+
+        return $this->hasMany('App\Payroll');
+    }
 }

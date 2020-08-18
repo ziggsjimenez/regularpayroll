@@ -18,6 +18,7 @@ class CreatePayrollsTable extends Migration
             $table->text('description');
             $table->text('refnum');
             $table->foreignId('chargeability_id');
+            $table->foreignId('deductionmode_id');
             $table->foreignId('status_id');
             $table->date('datefrom');
             $table->date('dateto');

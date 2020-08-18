@@ -16,16 +16,27 @@
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:origin/18082020" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d8eca0c7-8361-41e5-b6b1-f30395047c73" name="Default Changelist" comment="">
+    <list default="true" id="d8eca0c7-8361-41e5-b6b1-f30395047c73" name="Default Changelist" comment="18082020">
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/cache/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/cache/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/6dc25bfb6f7f942dcaa8fa7a916ab27bbe28b35c.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/6dc25bfb6f7f942dcaa8fa7a916ab27bbe28b35c.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/7da691a709179add51864ae23e6f61df96eaa30f.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/7da691a709179add51864ae23e6f61df96eaa30f.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/90c94dee54c67c94fd0ca72ad844484eb0fce6e8.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/90c94dee54c67c94fd0ca72ad844484eb0fce6e8.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Deductionmode.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Deductionmode.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Payroll.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Payroll.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_10_082931_create_payrolls_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_10_082931_create_payrolls_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_13_031438_create_deductionitems_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_13_031438_create_deductionitems_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_13_033214_create_deductionmodes_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_13_033214_create_deductionmodes_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DeductionitemSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DeductionitemSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DeductionmodeSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DeductionmodeSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/EmployeesSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/EmployeesSeeder.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -248,6 +259,8 @@
       <workItem from="1597134621405" duration="1455000" />
       <workItem from="1597391140261" duration="1225000" />
       <workItem from="1597623646047" duration="447000" />
+      <workItem from="1597641546016" duration="1529000" />
+      <workItem from="1597711501352" duration="1573000" />
     </task>
     <servers />
   </component>
@@ -259,7 +272,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/18082020" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -268,6 +293,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="18082020" />
+    <option name="LAST_COMMIT_MESSAGE" value="18082020" />
   </component>
   <component name="WindowStateProjectService">
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1597029567214">
@@ -278,6 +307,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1597623944888" />
+    <state x="727" y="240" key="RollbackChangesDialog" timestamp="1597711960855">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="727" y="240" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597711960855" />
     <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597044021895">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
