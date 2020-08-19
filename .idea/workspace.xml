@@ -27,16 +27,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d8eca0c7-8361-41e5-b6b1-f30395047c73" name="Default Changelist" comment="18082020">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/offices/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/offices/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/offices/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Deductionmode.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Deductionmode.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Payroll.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Payroll.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_10_082931_create_payrolls_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_10_082931_create_payrolls_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_13_031438_create_deductionitems_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_13_031438_create_deductionitems_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_13_033214_create_deductionmodes_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_13_033214_create_deductionmodes_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DeductionitemSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DeductionitemSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DeductionmodeSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DeductionmodeSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Deductionitem.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Deductionitem.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Deductionmodecategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Deductionmodecategory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DeductionitemsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DeductionitemsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OfficeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OfficeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_08_080257_create_employees_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_08_080257_create_employees_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/EmployeesSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/EmployeesSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/deductionitems/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/deductionitems/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/deductionitems/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/deductionitems/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/deductionitems/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/deductionitems/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/inc/nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/inc/nav.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +183,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../sap" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../jopayroll" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -260,7 +267,8 @@
       <workItem from="1597391140261" duration="1225000" />
       <workItem from="1597623646047" duration="447000" />
       <workItem from="1597641546016" duration="1529000" />
-      <workItem from="1597711501352" duration="1573000" />
+      <workItem from="1597711501352" duration="6224000" />
+      <workItem from="1597824210971" duration="2939000" />
     </task>
     <servers />
   </component>
@@ -303,10 +311,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597029567214" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1597623944888">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1597715906285">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1597623944888" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1597715906285" />
     <state x="727" y="240" key="RollbackChangesDialog" timestamp="1597711960855">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -315,9 +323,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1597044021895" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1597135123886">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1597826169731">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1597135123886" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1597826169731" />
   </component>
 </project>

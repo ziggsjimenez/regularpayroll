@@ -19,9 +19,8 @@ class CreateEmployeesTable extends Migration
             $table->text('firstname');
             $table->text('middlename');
             $table->text('extname')->nullable();
-            $table->text('address')->nullable();
-            $table->text('contact')->nullable();
-            $table->date('birthday')->nullable();
+            $table->foreignId('office_id');
+            $table->decimal('rate',10,2);
             $table->timestamps();
         });
     }

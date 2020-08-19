@@ -67,6 +67,8 @@ Route::resource('payrolls','PayrollController');
 
 Route::resource('deductionitems','DeductionitemsController');
 
+Route::resource('offices','OfficeController');
+
 
 
 //reports

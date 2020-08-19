@@ -3,7 +3,7 @@
 </li>
 
 <li class="nav-item">
-    <a class="nav-link" href="{{ route('chargeabilities.index') }}">{{ __('Chargeability') }}</a>
+    <a class="nav-link" href="{{ route('offices.index') }}">{{ __('Offices') }}</a>
 </li>
 
 

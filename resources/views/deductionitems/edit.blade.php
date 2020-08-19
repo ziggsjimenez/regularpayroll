@@ -1,7 +1,7 @@
 @extends('layouts.auth')
 
 @section('customTitle')
-    @include('layouts.inc.title',['title'=>'Deduction Items Index'])
+    @include('layouts.inc.title',['title'=>'Edit Deduction Item'])
 @endsection
 
 @section('customCss')
@@ -26,37 +26,18 @@
 
         <div class="form-group">
             {!! Form::label('deductionmode_id', 'Deduction Mode')!!}
-            {!! Form::select('deductionmode_id',$deductionmodes,1,['class' => 'form-control'.($errors->has('deductionmode_id') ? ' is-invalid' : ''),'placeholder'=>'Select...'])!!}
+            {!! Form::select('deductionmode_id',$deductionmodes,null,['class' => 'form-control'.($errors->has('deductionmode_id') ? ' is-invalid' : ''),'placeholder'=>'Select...'])!!}
         </div>
 
         <div class="form-group">
-            {!! Form::label('defaultamount', 'Defaultamount')!!}
-            {!! Form::number('defaultamount',null,['class' => 'form-control'.($errors->has('defaultamount') ? ' is-invalid' : ''),'placeholder'=>'Php 0.00'])!!}
+            {!! Form::label('deductionmodecategory_id', 'Deduction Mode Category')!!}
+            {!! Form::select('deductionmodecategory_id',$deductionmodecategories,null,['class' => 'form-control'.($errors->has('deductionmodecategory_id') ? ' is-invalid' : ''),'placeholder'=>'Select...'])!!}
         </div>
 
         <div class="form-group">
             {!! Form::label('status', 'Status')!!}
             {!! Form::select('status',['Active'=>'Active','Inactive'=>'Inactive'],null,['class' => 'form-control'.($errors->has('status') ? ' is-invalid' : ''),'placeholder'=>'Select...'])!!}
         </div>
-
-
-        <div class="form-group">
-            @for ($i = 1; $i <= 24; $i++)
-
-
-
-                @if($deductionitem->f.($i)==1)
-                {!! Form::checkbox('f'.$i,1,true)!!}
-                    @else
-                {!! Form::checkbox('f'.$i,1)!!}
-                @endif
-
-
-                {!! Form::label('f'.$i, 'F'.$i)!!}
-
-            @endfor
-        </div>
-
 
 
 
@@ -77,3 +58,4 @@
 
     </script>
 @endsection
+

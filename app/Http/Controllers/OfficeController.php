@@ -17,7 +17,9 @@ class OfficeController extends Controller
 
     public function index()
     {
-        //
+        $offices = Office::get()->all();
+
+        return view('offices.index',compact('offices'));
     }
 
     /**
@@ -27,7 +29,7 @@ class OfficeController extends Controller
      */
     public function create()
     {
-        //
+        return view('offices.create');
     }
 
     /**
@@ -58,9 +60,11 @@ class OfficeController extends Controller
      * @param  \App\Office  $office
      * @return \Illuminate\Http\Response
      */
-    public function edit(Office $office)
+    public function edit($id)
     {
-        //
+        $office = Office::find($id);
+
+        return view ('offices.edit',compact('office'));
     }
 
     /**
