@@ -6,6 +6,8 @@ use App\Appemployee;
 use App\Appointment;
 use App\Deduction;
 use App\Deductionitem;
+use App\Deductionmode;
+use App\Deductionmodecategory;
 use App\Employeededuction;
 use App\Payroll;
 use App\Payrollitem;
@@ -13,6 +15,7 @@ use App\Chargeability;
 use App\Refund;
 use App\Refundtype;
 use App\Status;
+use App\Office;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Redirect;
@@ -30,13 +33,6 @@ class PayrollController extends Controller
     {
         $payrolls = Payroll::where('deleted','=',0)->get();
 
-        foreach($payrolls as $payroll){
-
-            $payroll->refnum=$this->generaterefnum($payroll->chargeability_id,$payroll->id);
-            $payroll->save();
-
-        }
-
         return view ('payrolls.index',compact('payrolls'));
     }
 
@@ -44,9 +40,11 @@ class PayrollController extends Controller
     public function create()
     {
         $chargeabilities = Chargeability::pluck('name','id');
+        $deductionmodes = Deductionmode::pluck('name','id');
+        $offices = Office::pluck('name','id');
         $statuses = Status::pluck('name','id');
 
-        return view('payrolls.create',compact('chargeabilities','statuses'));
+        return view('payrolls.create',compact('chargeabilities','statuses','offices','deductionmodes'));
 
     }
 
@@ -55,7 +53,8 @@ class PayrollController extends Controller
     {
         $request->validate([
             'description'=>'required',
-            'chargeability_id'=>'required',
+            'office_id'=>'required',
+            'deductionmode_id'=>'required',
             'status_id'=>'required',
             'datefrom'=>'required',
             'dateto'=>'required'
@@ -65,67 +64,49 @@ class PayrollController extends Controller
 
         $payroll->fill($request->all());
 
-        $payroll->refnum=$this->generaterefnum($request['chargeability_id'],0);
+        $payroll->refnum="";
+
+        $payroll->save();
+
+        $payroll = Payroll::latest()->first();
+
+
+
+        $payroll->refnum=$this->generaterefnum($payroll);
+
+        $this->generatepayrollitems($payroll->id);
 
         $payroll->save();
 
         return redirect(route('payrolls.index'))->with('success','Record created');
     }
 
-    private function generaterefnum($chargeability_id,$id){
+    public function generatepayrollitems($payroll_id){
+
+        $payroll = Payroll::find($payroll_id);
+
+        $office = Office::find($payroll->office->id);
 
 
-        if ($id==0){
+        foreach ($office->employees as $employee){
 
-            $lastpayroll_id = Payroll::latest()->first()['id'];
+            $payrollitem = new Payrollitem;
 
+            $payrollitem->rate = $employee->rate;
 
-            if($lastpayroll_id==null){
-                $lastpayroll_id=1;
-//                dd($lastpayroll_id);
-            }
+            $payrollitem->payroll_id = $payroll_id;
 
+            $payrollitem->employee_id = $employee->id;
+
+            $payrollitem->save();
 
         }
 
-        else {
-            $lastpayroll_id = $id;
-        }
+    }
 
+    private function generaterefnum($payroll){
 
-        $lenchar = strlen(strval($chargeability_id));
-
-        if($lenchar==1){
-            $trailingchar1 = "000";
-        }
-
-        elseif ($lenchar==2){
-            $trailingchar1 = "00";
-        }
-
-        elseif ($lenchar==3){
-            $trailingchar1 = "0";
-        }
-
-
-        $len = strlen(strval($lastpayroll_id));
-
-        if($len==1){
-            $trailingchar = "000";
-        }
-
-        elseif ($len==2){
-            $trailingchar = "00";
-        }
-
-        elseif ($len==3){
-            $trailingchar = "0";
-        }
-
-
-        $refnum = date('Y')."-".strval($chargeability_id).$trailingchar1."-".$trailingchar.strval($lastpayroll_id);
-
-        return $refnum;
+        return date('Y').'-'.$payroll->office->code.'-'.$payroll->id;
 
     }
 
@@ -134,23 +115,26 @@ class PayrollController extends Controller
     {
         $payroll = Payroll::find($id);
 
+        $deductionitems = Deductionitem::get()->all();
 
+        $deductionmodecategories = Deductionmodecategory::get()->all();
 
-        $appointments = Appointment::where('chargeability_id','=',$payroll->chargeability_id)->get();
+        $this->generatePayrollitemDeductions($payroll->id);
 
-//        $employees = Employee::get()->all();
+        return view ('payrolls.show',compact('payroll','deductionitems','deductionmodecategories'));
 
-        return view ('payrolls.show',compact('payroll','appointments'));
     }
 
 
     public function edit($id)
     {
         $chargeabilities = Chargeability::pluck('name','id');
+        $deductionmodes = Deductionmode::pluck('name','id');
+        $offices = Office::pluck('name','id');
         $statuses = Status::pluck('name','id');
         $payroll = Payroll::find($id);
 
-        return view('payrolls.edit',compact('chargeabilities','statuses','payroll'));
+        return view('payrolls.edit',compact('chargeabilities','statuses','payroll','deductionmodes','offices'));
     }
 
 
@@ -158,7 +142,8 @@ class PayrollController extends Controller
     {
         $request->validate([
             'description'=>'required',
-            'chargeability_id'=>'required',
+            'office_id'=>'required',
+            'deductionmode_id'=>'required',
             'status_id'=>'required',
             'datefrom'=>'required',
             'dateto'=>'required'
@@ -320,9 +305,11 @@ class PayrollController extends Controller
 
         $payroll = Payroll::find($payroll_id);
 
+
         foreach ($payroll->payrollitems as $payrollitem){
 
             $deductions = Deduction::where('payrollitem_id','=',$payrollitem->id);
+
             $deductions->delete();
 
             foreach($payrollitem->employee->deductions->where('status','=','Active') as $employeededuction){
@@ -333,7 +320,6 @@ class PayrollController extends Controller
                 $deduction->save();
             }
         }
-
     }
 
     public function printpayslips($id){

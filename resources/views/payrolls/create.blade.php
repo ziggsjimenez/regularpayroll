@@ -4,7 +4,6 @@
     @include('layouts.inc.title',['title'=>'Create Payroll'])
 @endsection
 
-
 @section('content')
     <div class="container">
 
@@ -20,8 +19,13 @@
         </div>
 
         <div class="form-group">
-            {!! Form::label('chargeability_id', 'Chargeability')!!}
-            {!! Form::select('chargeability_id',$chargeabilities,null,['class' => 'form-control'.($errors->has('chargeability_id') ? ' is-invalid' : ''),'placeholder'=>'Select...'])!!}
+            {!! Form::label('office_id', 'Office')!!}
+            {!! Form::select('office_id',$offices,null,['class' => 'form-control'.($errors->has('office_id') ? ' is-invalid' : ''),'placeholder'=>'Select...'])!!}
+        </div>
+
+        <div class="form-group">
+            {!! Form::label('deductionmode_id', 'Deduction Mode')!!}
+            {!! Form::select('deductionmode_id',$deductionmodes,null,['class' => 'form-control'.($errors->has('deductionmode_id') ? ' is-invalid' : ''),'placeholder'=>'Select...'])!!}
         </div>
 
         <div class="form-group">
@@ -43,8 +47,8 @@
 
         {!! Form::close() !!}
 
-
     </div>
+
 @endsection
 
 @section('customScripts')

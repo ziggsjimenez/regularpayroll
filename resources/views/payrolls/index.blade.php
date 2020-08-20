@@ -31,7 +31,8 @@
                 <th>Reference Number</th>
                 <th>Description</th>
                 <th>Payrollitems</th>
-                <th>Chargeability</th>
+                <th>Office</th>
+                <th>Deduction Mode</th>
                 <th>Status</th>
                 <th>From</th>
                 <th>To</th>
@@ -48,7 +49,8 @@
                     <td>{{$payroll->refnum}}</td>
                     <td style="width: 300px;">{{$payroll->description}}</td>
                     <td style="width: 100px;">{{$payroll->payrollitems->count()}}</td>
-                    <td style="width: 300px;">{{$payroll->chargeability->name}}</td>
+                    <td style="width: 300px;">{{$payroll->office->name}}</td>
+                    <td style="width: 300px;">{{$payroll->deductionmode->name}}</td>
                     <td>{{$payroll->status->name}}</td>
                     <td>{{$payroll->datefrom->format('M d, Y')}}</td>
                     <td>{{$payroll->dateto->format('M d, Y')}}</td>

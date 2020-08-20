@@ -32,5 +32,10 @@ class Employee extends Model
 
     }
 
+    public function office(){
+
+        return $this->belongsTo('App\Office');
+    }
+
 
 }

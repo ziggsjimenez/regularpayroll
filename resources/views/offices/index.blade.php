@@ -22,6 +22,7 @@
             <tr>
                 <th>ID</th>
                 <th>Name</th>
+                <th>Code</th>
                 <th>Head of Office</th>
                 <th>Position</th>
                 <th>Action</th>
@@ -33,7 +34,8 @@
                 <tr>
                     <td>{{$office->id}}</td>
                     <td>{{$office->name}}</td>
-                    <td>{{$office->headofoffice}}</td>
+                    <td>{{$office->code}}</td>
+                    <td>{{$office->head}}</td>
                     <td>{{$office->position}}</td>
                     <td>
 

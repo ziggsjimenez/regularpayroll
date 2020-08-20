@@ -24,23 +24,28 @@
         </div>
 
         <div class="form-group">
-            {!! Form::label('chargeability_id', 'Chargeability')!!}
-            {!! Form::select('chargeability_id',$chargeabilities,null,['class' => 'form-control'.($errors->has('chargeability_id') ? ' is-invalid' : ''),'placeholder'=>'Select...'])!!}
+            {!! Form::label('office_id', 'Office')!!}
+            {!! Form::select('office_id',$offices,null,['class' => 'form-control'.($errors->has('office_id') ? ' is-invalid' : ''),'placeholder'=>'Select...'])!!}
+        </div>
+
+        <div class="form-group">
+            {!! Form::label('deductionmode_id', 'Deduction Mode')!!}
+            {!! Form::select('deductionmode_id',$deductionmodes,null,['class' => 'form-control'.($errors->has('deductionmode_id') ? ' is-invalid' : ''),'placeholder'=>'Select...'])!!}
         </div>
 
         <div class="form-group">
             {!! Form::label('status_id', 'Status')!!}
-            {!! Form::select('status_id',$statuses,null,['class' => 'form-control'.($errors->has('status_id') ? ' is-invalid' : ''),'placeholder'=>'Select...'])!!}
+            {!! Form::select('status_id',$statuses,1,['class' => 'form-control'.($errors->has('status_id') ? ' is-invalid' : ''),'placeholder'=>'Select...'])!!}
         </div>
 
         <div class="form-group">
             {!! Form::label('datefrom', 'From (mm/dd/yyyy)')!!}
-            {!! Form::date('datefrom',$payroll->datefrom,['class' => 'form-control'.($errors->has('datefrom') ? ' is-invalid' : '')])!!}
+            {!! Form::date('datefrom',null,['class' => 'form-control'.($errors->has('datefrom') ? ' is-invalid' : '')])!!}
         </div>
 
         <div class="form-group">
             {!! Form::label('dateto', 'To (mm/dd/yyyy)')!!}
-            {!! Form::date('dateto',$payroll->dateto,['class' => 'form-control'.($errors->has('dateto') ? ' is-invalid' : '')])!!}
+            {!! Form::date('dateto',null,['class' => 'form-control'.($errors->has('dateto') ? ' is-invalid' : '')])!!}
         </div>
 
 

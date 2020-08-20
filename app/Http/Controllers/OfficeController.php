@@ -40,7 +40,20 @@ class OfficeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'=>'required',
+            'head'=>'required',
+            'position'=>'required',
+            'code'=>'required'
+        ]);
+
+        $office = new Office;
+
+        $office->fill($request->all());
+
+        $office->save();
+
+        return redirect(route('offices.index'));
     }
 
     /**
@@ -74,9 +87,22 @@ class OfficeController extends Controller
      * @param  \App\Office  $office
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Office $office)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name'=>'required',
+            'head'=>'required',
+            'position'=>'required',
+            'code'=>'required'
+        ]);
+
+        $office = Office::find($id);
+
+        $office->fill($request->all());
+
+        $office->save();
+
+        return redirect(route('offices.index'));
     }
 
     /**

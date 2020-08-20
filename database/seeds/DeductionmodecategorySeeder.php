@@ -12,13 +12,13 @@ class DeductionmodecategorySeeder extends Seeder
     public function run()
     {
         $deductionmodecategories = [
-            ['name'=>'GSIS Loans'],
             ['name'=>'GSIS Premiums'],
+            ['name'=>'GSIS Loans'],
             ['name'=>'Pagibig Premiums'],
             ['name'=>'Pagibig Loans'],
+            ['name'=>'Philhealth'],
             ['name'=>'Bank Loans'],
-            ['name'=>'Regular Deductions'],
-            ['name'=>'Philhealth']
+            ['name'=>'Regular Deductions']
         ];
 
         foreach($deductionmodecategories as $deductionmodecategory){

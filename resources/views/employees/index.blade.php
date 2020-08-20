@@ -23,13 +23,8 @@
             <thead>
             <tr>
                 <th>ID</th>
-                <th>Lastname</th>
-                <th>Firstname</th>
-                <th>Middlename</th>
-                <th>Extname</th>
-                <th>Birthday</th>
-                <th>Address</th>
-                <th>Contact No.</th>
+                <th>Name</th>
+                <th>Office</th>
                 <th>Deductions</th>
                 <th>Action</th>
             </tr>
@@ -39,14 +34,8 @@
             @foreach($employees as $employee)
                 <tr>
                     <td>{{$count++}}</td>
-                    <td>{{$employee->lastname}}</td>
-                    <td>{{$employee->firstname}}</td>
-                    <td>{{$employee->middlename}}</td>
-                    <td>{{$employee->extname}}</td>
-                    <td>{{$employee->birthday}}</td>
-                    <td>{{$employee->address}}</td>
-                    <td>{{$employee->contact}}</td>
-
+                    <td>{{$employee->fullname()}}</td>
+                    <td>{{$employee->office->name}}</td>
                     <td>
                         @foreach($employee->deductions as $employeededuction)
 

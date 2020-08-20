@@ -25,13 +25,18 @@
         </div>
 
         <div class="form-group">
-            {!! Form::label('headofoffice', 'Head of Office')!!}
-            {!! Form::text('headofoffice',null,['class' => 'form-control'.($errors->has('headofoffice') ? ' is-invalid' : '')])!!}
+            {!! Form::label('head', 'Head of Office')!!}
+            {!! Form::text('head',null,['class' => 'form-control'.($errors->has('head') ? ' is-invalid' : '')])!!}
         </div>
 
         <div class="form-group">
             {!! Form::label('position', 'Position')!!}
             {!! Form::text('position',null,['class' => 'form-control'.($errors->has('position') ? ' is-invalid' : '')])!!}
+        </div>
+
+        <div class="form-group">
+            {!! Form::label('code', 'Code')!!}
+            {!! Form::text('code',null,['class' => 'form-control'.($errors->has('code') ? ' is-invalid' : '')])!!}
         </div>
 
 

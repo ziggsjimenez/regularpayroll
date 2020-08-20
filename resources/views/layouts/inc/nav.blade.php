@@ -6,13 +6,8 @@
     <a class="nav-link" href="{{ route('offices.index') }}">{{ __('Offices') }}</a>
 </li>
 
-
 <li class="nav-item">
     <a class="nav-link" href="{{ route('employees.index') }}">{{ __('Employees') }}</a>
-</li>
-
-<li class="nav-item">
-    <a class="nav-link" href="{{ route('appointments.index') }}">{{ __('Appointments') }}</a>
 </li>
 
 <li class="nav-item">

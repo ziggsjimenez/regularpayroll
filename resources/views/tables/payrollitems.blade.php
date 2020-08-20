@@ -1,86 +1,64 @@
+@php $count=1; @endphp
+
 <table class="table table-bordered" style="font-size:80%">
     <thead>
     <tr>
         <th rowspan="2">#</th>
+        <th rowspan="2">DB id</th>
         <th rowspan="2">Name</th>
-        <th rowspan="2">Rate (Php)</th>
-        <th rowspan="2">No. of days</th>
-        <th colspan="{{count($deductionitems)}}">Deductions</th>
-        <th colspan="{{count($refundtypes)}}">Refunds</th>
+        <th colspan="{{count($deductionitems)}}">Deduction Items - {{count($deductionitems)}}</th>
         <th rowspan="2">Action</th>
     </tr>
-    <tr>
-        @foreach($deductionitems as $deductionitem)
 
-            <th>{{$deductionitem->name}}</th>
+
+    <tr>
+    @foreach($deductionmodecategories as $deductionmodecategory)
+
+        <th>$deductionmodecategory->name</th>
 
         @endforeach
+    </tr>
 
-
-        @foreach($refundtypes as $refundtype)
-
-            <th>{{$refundtype->title}}</th>
-
+    <tr>
+        @foreach($deductionitems as $deductionitem)
+            <th>{{$deductionitem->name}}</th>
         @endforeach
     </tr>
     </thead>
+
     <tbody>
 
-    <?php $counter=1; ?>
-    @foreach($payroll->payrollitems as $payrollitem)
-        @php
-            $fullname = "<span class=\"number\">".$payrollitem->employee->lastname."</span>".', '.$payrollitem->employee->firstname.' '.$payrollitem->employee->middlename.' '.$payrollitem->employee->extname;
-        @endphp
+    @foreach($payroll->office->employees as $employee)
 
         <tr>
-            <td><a href="{{route('payrollitems.show',$payrollitem->id)}}">{{$counter++}}</a></td>
-            <td>{!! $fullname !!}</td>
-            <td class="right">{{number_format($payrollitem->rate,2,'.',',')}}</td>
-            <td class="right">
-                <input class="dayscontent" payrollitem_id="{{$payrollitem->id}}" style="width:80px;" type="text" value="{{$payrollitem->days}}" >
-            </td>
+            <td>{{$count++}}</td>
+            <td>{{$employee->id}}</td>
+            <td>{{$employee->fullname()}}</td>
+
 
             @foreach($deductionitems as $deductionitem)
 
-                @foreach($payrollitem->employee->deductions as $employeededuction)
+                @foreach($employee->deductions as $employeededuction)
 
                     @if($employeededuction->deductionitem_id == $deductionitem->id)
-                    <td>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input deductioncheck" id="inlineCheckbox{{$employeededuction->id}}" type="checkbox" value="{{$employeededuction->id}}" @if ($employeededuction->status=="Active") checked @endif>
-                            <label class="form-check-label" for="inlineCheckbox{{$employeededuction->id}}">{{$employeededuction->deductionitem->name}}</label>
-                        </div>
-                        <br/>
-
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input deductionamount" employeedeductionid = "{{$employeededuction->id}}" id="amountinput{{$employeededuction->id}}"  maxlength="6" size="6" type="text" @if ($employeededuction->status=="Active") enabled value="{{$employeededuction->amount}}"  @else disabled @endif>
-                        </div>
-
-                    </td>
-                    @endif
-                @endforeach
-
-            @endforeach
-
-
-            @foreach($refundtypes as $refundtype)
                         <td>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input deductioncheck" id="inlineCheckbox{{$employeededuction->id}}" type="checkbox" value="{{$employeededuction->id}}" @if ($employeededuction->status=="Active") checked @endif>
+                                <label class="form-check-label" for="inlineCheckbox{{$employeededuction->id}}">{{$employeededuction->deductionitem->name}}</label>
+                            </div>
+                            <br/>
 
-
-                            @if($payrollitem->getRefundAmount($payrollitem->id,$refundtype->id)==null)
-
-                                <input class="refundamount" refundtype_id="{{$refundtype->id}}" payrollitem_id="{{$payrollitem->id}}" style="width:50px;" type="text">
-
-                            @else
-
-                                <input class="refundamount" refundtype_id="{{$refundtype->id}}" payrollitem_id="{{$payrollitem->id}}" style="width:50px;" type="text" value="{{$payrollitem->getRefundAmount($payrollitem->id,$refundtype->id)->amount}}">
-
-                                @endif
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input deductionamount" employeedeductionid = "{{$employeededuction->id}}" id="amountinput{{$employeededuction->id}}"  maxlength="6" size="6" type="text" @if ($employeededuction->status=="Active") enabled value="{{$employeededuction->amount}}"  @else disabled @endif>
+                            </div>
 
                         </td>
+                    @endif
+                @endforeach
             @endforeach
 
-            <td><button payrollitem="{{$payrollitem->id}}"class="delbtn btn btn-warning">DEL</button></td>
+            <td>Edit Del</td>
+
         </tr>
     @endforeach
     </tbody>
@@ -207,10 +185,6 @@
 
                 }
             });
-
-
-
-
 
         })
 

@@ -15,7 +15,6 @@ class CreatePayrollitemsTable extends Migration
     {
         Schema::create('payrollitems', function (Blueprint $table) {
             $table->id();
-            $table->decimal('days',10,2);
             $table->decimal('rate',10,2);
             $table->foreignId('payroll_id');
             $table->foreignId('employee_id');

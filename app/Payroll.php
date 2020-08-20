@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Payroll extends Model
 {
-    protected $fillable = ['description','chargeability_id','status_id','datefrom','dateto'];
+    protected $fillable = ['description','office_id','deductionmode_id','status_id','datefrom','dateto'];
 
     protected $dates = ['datefrom', 'dateto'];
 
@@ -66,6 +66,11 @@ class Payroll extends Model
         $numberofdigits = strlen((string)$this->id);
 
         return $numberofdigits;
+    }
+
+    public function office(){
+
+        return $this->belongsTo('App\Office');
     }
 
 

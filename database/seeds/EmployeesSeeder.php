@@ -34,9 +34,9 @@ class EmployeesSeeder extends Seeder
 
         switch($deductionitem_id)
         {
-            case 4: $amount = $employee->rate * .09;break;
-            case 5: $amount = $employee->rate * .12;break;
-            case 7:case 8: $amount = $employee->rate * .02;break;
+            case 4: $amount = ($employee->rate * .09)/2;break;
+            case 5: $amount = ($employee->rate * .12)/2;break;
+            case 7:case 8: $amount = ($employee->rate * .02)/2;break;
             default: $amount = 0;break;
         }
 
