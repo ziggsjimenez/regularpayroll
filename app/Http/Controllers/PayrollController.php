@@ -209,13 +209,13 @@ class PayrollController extends Controller
 
         $payroll_id = $_POST['payroll'];
 
-        $deductionitems = Deductionitem::where('status','=','Active')->get();
+        $deductionitems = Deductionitem::get()->all();
 
-        $refundtypes = Refundtype::get()->all();
+        $deductionmodecategories = Deductionmodecategory::get()->all();
 
         $payroll = Payroll::find($payroll_id);
 
-        $view = view('tables.payrollitems',compact('payroll','deductionitems','refundtypes'))->render();
+        $view = view('tables.payrollitems',compact('payroll','deductionitems','deductionmodecategories'))->render();
 
         return response()->json($view);
 

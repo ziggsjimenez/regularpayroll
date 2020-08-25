@@ -3,6 +3,10 @@
 </li>
 
 <li class="nav-item">
+    <a class="nav-link" href="{{ route('deductionmodecategories.index') }}">{{ __('Deduction Categories') }}</a>
+</li>
+
+<li class="nav-item">
     <a class="nav-link" href="{{ route('offices.index') }}">{{ __('Offices') }}</a>
 </li>
 

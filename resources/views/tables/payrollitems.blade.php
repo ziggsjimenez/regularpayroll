@@ -3,27 +3,33 @@
 <table class="table table-bordered" style="font-size:80%">
     <thead>
     <tr>
-        <th rowspan="2">#</th>
-        <th rowspan="2">DB id</th>
-        <th rowspan="2">Name</th>
+        <th rowspan="3">#</th>
+        <th rowspan="3">DB id</th>
+        <th rowspan="3">Name</th>
         <th colspan="{{count($deductionitems)}}">Deduction Items - {{count($deductionitems)}}</th>
-        <th rowspan="2">Action</th>
+        <th rowspan="3">Action</th>
     </tr>
 
 
     <tr>
     @foreach($deductionmodecategories as $deductionmodecategory)
 
-        <th>$deductionmodecategory->name</th>
+        <th colspan="{{count($deductionmodecategory->deductionitems)}}">{{$deductionmodecategory->name}} - {{count($deductionmodecategory->deductionitems)}}</th>
 
         @endforeach
     </tr>
 
     <tr>
-        @foreach($deductionitems as $deductionitem)
-            <th>{{$deductionitem->name}}</th>
+        @foreach($deductionmodecategories as $deductionmodecategory)
+
+            @foreach($deductionmodecategory->deductionitems as $deductionitem)
+                <th>{{$deductionitem->name}}</th>
+            @endforeach
+
         @endforeach
     </tr>
+
+
     </thead>
 
     <tbody>
@@ -44,7 +50,7 @@
                         <td>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input deductioncheck" id="inlineCheckbox{{$employeededuction->id}}" type="checkbox" value="{{$employeededuction->id}}" @if ($employeededuction->status=="Active") checked @endif>
-                                <label class="form-check-label" for="inlineCheckbox{{$employeededuction->id}}">{{$employeededuction->deductionitem->name}}</label>
+                                {{--<label class="form-check-label" for="inlineCheckbox{{$employeededuction->id}}">{{$employeededuction->deductionitem->name}}</label>--}}
                             </div>
                             <br/>
 

@@ -13,34 +13,34 @@ class DeductionitemSeeder extends Seeder
     {
         $deductionitems = [
 
-            ['name'=>'GSIS PREMIUMS - PS','deductionmodecategory_id'=>2,'deductionmode_id'=>2,'status'=>'Active','deductible'=>TRUE],
-            ['name'=>'GSIS PREMIUMS - GS','deductionmodecategory_id'=>2,'deductionmode_id'=>2,'status'=>'Active','deductible'=>FALSE],
+            ['name'=>'PS','deductionmodecategory_id'=>1,'deductionmode_id'=>2,'status'=>'Active','deductible'=>TRUE],
+            ['name'=>'GS','deductionmodecategory_id'=>1,'deductionmode_id'=>2,'status'=>'Active','deductible'=>FALSE],
+
+            ['name'=>'CONSO','deductionmodecategory_id'=>2,'deductionmode_id'=>2,'status'=>'Active','deductible'=>TRUE],
+            ['name'=>'EMERGENCY','deductionmodecategory_id'=>2,'deductionmode_id'=>2,'status'=>'Active','deductible'=>TRUE],
+            ['name'=>'POLICY','deductionmodecategory_id'=>2,'deductionmode_id'=>2,'status'=>'Active','deductible'=>TRUE],
+            ['name'=>'EDUC','deductionmodecategory_id'=>2,'deductionmode_id'=>2,'status'=>'Active','deductible'=>TRUE],
+
+            ['name'=>'PS','deductionmodecategory_id'=>3,'deductionmode_id'=>2,'status'=>'Active','deductible'=>TRUE],
+            ['name'=>'GS','deductionmodecategory_id'=>3,'deductionmode_id'=>2,'status'=>'Active','deductible'=>FALSE],
+            ['name'=>'PI II','deductionmodecategory_id'=>3,'deductionmode_id'=>2,'status'=>'Active','deductible'=>FALSE],
+
+            ['name'=>'MPL','deductionmodecategory_id'=>4,'deductionmode_id'=>2,'status'=>'Active','deductible'=>TRUE],
+            ['name'=>'EL','deductionmodecategory_id'=>4,'deductionmode_id'=>2,'status'=>'Active','deductible'=>TRUE],
+            ['name'=>'Calamity','deductionmodecategory_id'=>4,'deductionmode_id'=>2,'status'=>'Active','deductible'=>TRUE],
+
+            ['name'=>'PS','deductionmodecategory_id'=>5,'deductionmode_id'=>2,'status'=>'Active','deductible'=>TRUE],
+            ['name'=>'GS','deductionmodecategory_id'=>5,'deductionmode_id'=>2,'status'=>'Active','deductible'=>FALSE],
+
+            ['name'=>'ONB','deductionmodecategory_id'=>6,'deductionmode_id'=>2,'status'=>'Active','deductible'=>TRUE],
+            ['name'=>'LBP','deductionmodecategory_id'=>6,'deductionmode_id'=>2,'status'=>'Active','deductible'=>TRUE],
+
+            ['name'=>'Withholding Tax Payables','deductionmodecategory_id'=>7,'deductionmode_id'=>2,'status'=>'Active','deductible'=>TRUE],
+            ['name'=>'CA','deductionmodecategory_id'=>7,'deductionmode_id'=>2,'status'=>'Active','deductible'=>TRUE],
+            ['name'=>'LIVELIHOOD','deductionmodecategory_id'=>7,'deductionmode_id'=>2,'status'=>'Active','deductible'=>TRUE],
+            ['name'=>'ECIP','deductionmodecategory_id'=>7,'deductionmode_id'=>2,'status'=>'Active','deductible'=>TRUE],
 
 
-            ['name'=>'GSIS LOANS - CONSOL','deductionmodecategory_id'=>1,'deductionmode_id'=>2,'status'=>'Active','deductible'=>TRUE],
-            ['name'=>'GSIS LOANS - EMERGENCY','deductionmodecategory_id'=>1,'deductionmode_id'=>2,'status'=>'Active','deductible'=>TRUE],
-            ['name'=>'GSIS LOANS - POLICY','deductionmodecategory_id'=>1,'deductionmode_id'=>2,'status'=>'Active','deductible'=>TRUE],
-            ['name'=>'GSIS LOANS - EDUCATIONAL','deductionmodecategory_id'=>1,'deductionmode_id'=>2,'status'=>'Active','deductible'=>TRUE],
-
-            ['name'=>'ECIP','deductionmodecategory_id'=>6,'deductionmode_id'=>2,'status'=>'Active','deductible'=>TRUE],
-
-            ['name'=>'PAG-IBIG PREMIUMS- PS','deductionmodecategory_id'=>3,'deductionmode_id'=>2,'status'=>'Active','deductible'=>TRUE],
-            ['name'=>'PAG-IBIG PREMIUMS- GS','deductionmodecategory_id'=>3,'deductionmode_id'=>2,'status'=>'Active','deductible'=>FALSE],
-            ['name'=>'PAG-IBIG PREMIUMS- PI II','deductionmodecategory_id'=>3,'deductionmode_id'=>2,'status'=>'Active','deductible'=>FALSE],
-
-            ['name'=>'Pag-ibig MPL','deductionmodecategory_id'=>4,'deductionmode_id'=>2,'status'=>'Active','deductible'=>TRUE],
-            ['name'=>'Pag-ibig EL','deductionmodecategory_id'=>4,'deductionmode_id'=>2,'status'=>'Active','deductible'=>TRUE],
-            ['name'=>'Pag-ibig Calamity','deductionmodecategory_id'=>4,'deductionmode_id'=>2,'status'=>'Active','deductible'=>TRUE],
-
-            ['name'=>'PHIC PS','deductionmodecategory_id'=>7,'deductionmode_id'=>2,'status'=>'Active','deductible'=>TRUE],
-            ['name'=>'PHIC GS','deductionmodecategory_id'=>7,'deductionmode_id'=>2,'status'=>'Active','deductible'=>FALSE],
-
-            ['name'=>'With holding Tax Payables','deductionmodecategory_id'=>6,'deductionmode_id'=>2,'status'=>'Active','deductible'=>TRUE],
-
-            ['name'=>'BANK LOANS ONB','deductionmodecategory_id'=>5,'deductionmode_id'=>2,'status'=>'Active','deductible'=>TRUE],
-            ['name'=>'BANK LOANS LBP','deductionmodecategory_id'=>5,'deductionmode_id'=>2,'status'=>'Active','deductible'=>TRUE],
-            ['name'=>'CA','deductionmodecategory_id'=>6,'deductionmode_id'=>2,'status'=>'Active','deductible'=>TRUE],
-            ['name'=>'LIVELIHOOD','deductionmodecategory_id'=>6,'deductionmode_id'=>2,'status'=>'Active','deductible'=>TRUE],
 
         ];
 

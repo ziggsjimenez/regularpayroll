@@ -69,6 +69,8 @@ Route::resource('deductionitems','DeductionitemsController');
 
 Route::resource('offices','OfficeController');
 
+Route::resource('deductionmodecategories','DeductionmodecategoriesController');
+
 
 
 //reports

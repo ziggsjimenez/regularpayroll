@@ -20,7 +20,7 @@
         <table id="datatable">
             <thead>
             <tr>
-                <th rowspan="2">#</th>
+                <th rowspan="2">DB Id</th>
                 <th rowspan="2">Name</th>
                 <th rowspan="2">Deduction Mode</th>
                 <th rowspan="2">Deduction Mode Category</th>
